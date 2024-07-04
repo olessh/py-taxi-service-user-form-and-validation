@@ -38,8 +38,10 @@ class DriverLicenseUpdateForm(forms.ModelForm):
 
     def clean_license_number(self) -> str:
         license_number = self.cleaned_data["license_number"]
-        letters_part = license_number[:DriverLicenseUpdateForm.SEPARATION_INDEX]
-        numbers_part = license_number[DriverLicenseUpdateForm.SEPARATION_INDEX:]
+        letters_part =\
+            license_number[:DriverLicenseUpdateForm.SEPARATION_INDEX]
+        numbers_part =\
+            license_number[DriverLicenseUpdateForm.SEPARATION_INDEX:]
         if len(license_number) != DriverLicenseUpdateForm.LENGTH:
             raise ValidationError(
                 "Ensure that value is "
